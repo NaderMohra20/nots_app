@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_9/helper/note_provider.dart';
 import 'package:flutter_application_9/screens/note_edit_screen.dart';
-import 'package:flutter_application_9/utils/constants.dart';
+
 import 'package:flutter_application_9/widget/list_item.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -15,7 +15,7 @@ class NoteListScreen extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Scaffold(
-            body: Center(
+            body:const Center(
               child: CircularProgressIndicator(),
             ),
           );
@@ -67,7 +67,7 @@ class NoteListScreen extends StatelessWidget {
     return GestureDetector(
       child: Container(
         decoration: BoxDecoration(
-          color: headerColor,
+          color:  Color(0xFFFD5872),
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(75.0),
           ),
@@ -76,10 +76,14 @@ class NoteListScreen extends StatelessWidget {
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children:const [
             Text(
               'NOTES',
-              style: headerNotesStyle,
+              style: TextStyle(
+              color:Colors. white,
+              fontSize: 45.0,
+                fontWeight: FontWeight.bold,
+             ),
             ),
           ],
         ),
@@ -104,12 +108,20 @@ class NoteListScreen extends StatelessWidget {
             ),
             RichText(
               text: TextSpan(
-                style: noNotesStyle,
+                style: TextStyle(
+    fontSize: 22.0,
+    color:Color(0xFF424242),
+    fontWeight: FontWeight.w600,
+  ),
                 children: [
                   TextSpan(text: ' There is no note available\nTap on "'),
                   TextSpan(
                       text: '+',
-                      style: boldPlus,
+                      style: TextStyle(
+                          fontSize: 30.0,
+                          color: Colors.blueAccent,
+                           fontWeight: FontWeight.bold,
+                          ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           goToNoteEditScreen(context);

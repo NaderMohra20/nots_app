@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_9/helper/note_provider.dart';
 import 'package:flutter_application_9/models/note.dart';
 import 'package:flutter_application_9/screens/note_edit_screen.dart';
-import 'package:flutter_application_9/utils/constants.dart';
+
 import 'package:flutter_application_9/widget/delete_popup.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +29,7 @@ class _NoteViewScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor:Colors. white,
       appBar: AppBar(
         elevation: 0.7,
         backgroundColor: Colors.white,
@@ -60,12 +60,15 @@ class _NoteViewScreenState extends State {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 selectedNote!.title,
-                style: viewTitleStyle,
+                style:const TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 28.0,
+                ),
               ),
             ),
             Row(
               children: [
-                Padding(
+               const Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(
                     Icons.access_time,
@@ -84,9 +87,14 @@ class _NoteViewScreenState extends State {
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 selectedNote!.content,
-                style: viewContentStyle,
+                style: TextStyle(
+                  letterSpacing: 1.0,
+                  fontSize: 20.0,
+                   height: 1.5,
+                    fontWeight: FontWeight.w400)
+                ),
               ),
-            ),
+            
           ],
         ),
       ),

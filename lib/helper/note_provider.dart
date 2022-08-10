@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_application_9/helper/database_helper.dart';
 import 'package:flutter_application_9/models/note.dart';
-import 'package:flutter_application_9/utils/constants.dart';
 
+enum EditMode {
+  ADD,
+  UPDATE,
+}
 class NoteProvider with ChangeNotifier {
   List _items = [];
   List get items {

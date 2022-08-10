@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_9/screens/note_view_screen.dart';
-import 'package:flutter_application_9/utils/constants.dart';
+
 
 class ListItem extends StatelessWidget {
   final int? id;
@@ -26,9 +26,15 @@ class ListItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           decoration: BoxDecoration(
             color: Colors.white,
-            boxShadow: shadow,
+            boxShadow:const[
+               BoxShadow(
+               color: Colors.grey,
+                blurRadius: 30,
+                offset: Offset(0, 10),
+               )
+              ],
             borderRadius: BorderRadius.circular(15.0),
-            border: Border.all(color: grey, width: 1.0),
+            border: Border.all(color:Colors. grey, width: 1.0),
           ),
           child: Row(
             children: [
@@ -42,13 +48,20 @@ class ListItem extends StatelessWidget {
                         title!,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
-                        style: itemTitle,
+                        style:  TextStyle(
+                        fontSize: 18.0,
+                        color:Colors. black,
+                          fontWeight: FontWeight.bold,
+                          ),
                       ),
                       const SizedBox(height: 4.0),
                       Text(
                         date!,
                         overflow: TextOverflow.ellipsis,
-                        style: itemDateStyle,
+                        style: TextStyle(
+                          fontSize: 11.0,
+                           color: Color(0xFF6D6D6D),
+                            ),
                       ),
                       const SizedBox(
                         height: 8.0,
@@ -58,9 +71,14 @@ class ListItem extends StatelessWidget {
                           content!,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: itemContentStyle,
+                          style: TextStyle(
+                            letterSpacing: 1.0,
+                            fontSize: 20.0,
+                              height: 1.5,
+                              fontWeight: FontWeight.w400)
+                          ),
                         ),
-                      ),
+                      
                     ],
                   ),
                 ),

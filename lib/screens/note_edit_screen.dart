@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_9/helper/note_provider.dart';
 import 'package:flutter_application_9/models/note.dart';
 import 'package:flutter_application_9/screens/note_view_screen.dart';
-import 'package:flutter_application_9/utils/constants.dart';
+
 import 'package:flutter_application_9/widget/delete_popup.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
@@ -46,7 +46,7 @@ class _NoteEditScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.7,
         backgroundColor: Colors.white,
@@ -93,7 +93,10 @@ class _NoteEditScreenState extends State {
                 controller: titleController,
                 maxLines: null,
                 textCapitalization: TextCapitalization.sentences,
-                style: createTitle,
+                style:  TextStyle(
+                fontSize: 28.0,
+                 fontWeight: FontWeight.w900,
+),
                 decoration: InputDecoration(
                     hintText: 'Enter Note Title', border: InputBorder.none),
               ),
@@ -150,7 +153,12 @@ class _NoteEditScreenState extends State {
               child: TextField(
                 controller: contentController,
                 maxLines: null,
-                style: createContent,
+                style:const TextStyle(
+                 letterSpacing: 1.0,
+                 fontSize: 20.0,
+                 height: 1.5,
+                   fontWeight: FontWeight.w400,
+                  ),
                 decoration: InputDecoration(
                   hintText: 'Enter Something...',
                   border: InputBorder.none,
